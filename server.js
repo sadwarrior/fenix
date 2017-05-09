@@ -1,5 +1,12 @@
 const express = require('express')
+const pug = require('pug');
+const path = require('path');
+const parser = require('./parser');
+
 const app = express()
+
+app.set('view engine', 'pug')
+app.use('/static', express.static(__dirname + '/static'))
 
 const multer = require('multer')
 var upload = multer({
@@ -7,11 +14,12 @@ var upload = multer({
 })
 
 app.get('/', function(req, res) {
-  res.send('Hello World!')
+  parser.getDataObj((message) => {
+    res.render(path.join(__dirname, 'views/index.pug'), {
+      pageTitle: 'Hey',
+      message: message.slice(0, -1).split('|')
+    });
+  })
 })
 
-app.post()
-
-app.listen(3000, function() {
-  console.log('Example app listening on port 3000!')
-})
+app.listen(3000);

@@ -1,0 +1,21 @@
+body {
+  max-width: 600px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #14248A;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+li {
+  background-color: #28262C;
+  color: #F9F5FF;
+  width: auto;
+  margin: 10px;
+}
+
+ul {
+  list-style: none;
+}
